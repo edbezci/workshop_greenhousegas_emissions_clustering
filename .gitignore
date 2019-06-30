@@ -1,43 +1,36 @@
-# C++ objects and libs
-*.slo
-*.lo
-*.o
-*.a
-*.la
-*.lai
-*.so
-*.dll
-*.dylib
+# History files
+.Rhistory
+.Rapp.history
 
-# Qt-es
-object_script.*.Release
-object_script.*.Debug
-*_plugin_import.cpp
-/.qmake.cache
-/.qmake.stash
-*.pro.user
-*.pro.user.*
-*.qbs.user
-*.qbs.user.*
-*.moc
-moc_*.cpp
-moc_*.h
-qrc_*.cpp
-ui_*.h
-*.qmlc
-*.jsc
-Makefile*
-*build-*
+# Session Data files
+.RData
 
-# Qt unit tests
-target_wrapper.*
+# Example code in package build process
+*-Ex.R
 
-# QtCreator
-*.autosave
+# Output files from R CMD build
+/*.tar.gz
 
-# QtCreator Qml
-*.qmlproject.user
-*.qmlproject.user.*
+# Output files from R CMD check
+/*.Rcheck/
 
-# QtCreator CMake
-CMakeLists.txt.user*
+# RStudio files
+.Rproj.user/
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# knitr and R markdown default cache directories
+/*_cache/
+/cache/
+
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
+# Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
+rsconnect/
