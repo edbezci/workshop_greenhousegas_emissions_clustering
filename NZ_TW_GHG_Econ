@@ -7,7 +7,8 @@ library(dplyr)
 
 
 #Generate a Line Graphs for NZ-TW GHG Econ comparison with six variables
-Kuznets_Data %>% ggplot(aes(x=Year, y = Index, color = Variable)) + facet_grid(rows = vars(Country)) + theme_economist() +theme(legend.position = "none") + geom_line(aes(group = Variable),) +   geom_dl(aes(label= Variable), method = list(dl.trans(x = x - 1.2, y = y + 0.2), "last.points", cex = 0.9)) + theme(panel.spacing = unit(1, "lines")) + ggsave("facet1.jpg", plot = facet1, width = 10, height = 8, units = "in") + theme(axis.text =element_text(face="bold",size="10", color="black")) + geom_hline(yintercept=1, linetype="dashed", color = "black", size=0.3) + scale_color_brewer(palette = "Dark2") + theme(
+Kuznets_Data %>% ggplot(aes(x=Year, y = Index, color = Variable)) + facet_grid(rows = vars(Country)) + theme_economist() +theme(legend.position = "none") + geom_line(aes(group = Variable),) 
++   geom_dl(aes(label= Variable), method = list(dl.trans(x = x - 1.2, y = y + 0.2), "last.points", cex = 0.9)) + theme(panel.spacing = unit(1, "lines")) + ggsave("facet1.jpg", plot = facet1, width = 10, height = 8, units = "in") + theme(axis.text =element_text(face="bold",size="10", color="black")) + geom_hline(yintercept=1, linetype="dashed", color = "black", size=0.3) + scale_color_brewer(palette = "Dark2") + theme(
 +     axis.text = element_text(size = 11, color = "black"), axis.title = element_text(size = 11, color = "black")) + theme(
 +         plot.title = element_text(color = "black", size = 12, face = "bold"),
 +         plot.subtitle = element_text(color = "black"),
@@ -16,5 +17,13 @@ Kuznets_Data %>% ggplot(aes(x=Year, y = Index, color = Variable)) + facet_grid(r
 +                                                                               caption = "Data Source: IMF&NZStats&TaiwanStats") + scale_x_continuous(limits= c(2005, 2018), breaks = c(2005,2008,2011,2014,2017))
 
 # Creating smooth lines with loess to see the relation between economic development and Co2 emissions
-# This is for NZ
-TW_NZ_IMF_BP %>% filter(Country =="New Zealand") %>% ggplot(aes(GDP_PPP_Capita, CO2)) + geom_point() + scale_x_log10() +  geom_smooth(size=2) + geom_text(aes(label = Year), data = subset(TW_NZ_IMF_BP, Year %in% c(1980,1990,2000,2010,2018) & Country == "New Zealand"), vjust = 1, nudge_y = -0.3) + theme_economist() + theme(axis.text = element_text(size = 14, color = "black"), axis.title = element_text(size = 14, face="bold", color = "black")) + theme(plot.title = element_text(color = "black", size = 16, face = "bold"),plot.subtitle = element_text(color = "black"), plot.caption = element_text(color = "black", face = "italic")) + labs(title =  expression("New Zealand: Economic Growth and CO"[2]*"Emissions"),caption = "Data Source: IMF&BP", y = expression("CO"[2]), x = "GDP PPP Per Capita, Constant 2011 USD") + scale_color_brewer(palette = "Dark2") +  scale_x_continuous(limits= c(20000, 36000), breaks = c(20000,27000,36000))
+# This is for Taiwan
+TW_NZ_IMF_BP %>% filter(Country =="Taiwan") %>% ggplot(aes(GDP_PPP_Capita, CO2)) + geom_point() + scale_x_log10() 
++  geom_smooth(size=2) + geom_text(aes(label = Year),
+data = subset(TW_NZ_IMF_BP, Year %in% c(1980,1990,2000,2010,2018) & Country == "Taiwan"), 
+                                                                                                                                                     vjust = 1, nudge_y = -0.3) + theme_economist() + theme(axis.text = element_text(size = 14, color = "black"), 
+                                                                                                                                                                                                            axis.title = element_text(size = 14, face="bold", color = "black")) + theme(plot.title = element_text(color = "black", size = 16, face = "bold"),plot.subtitle = element_text(color = "black")
+                                                                                                                                                                                                                                                                                        , plot.caption = element_text(color = "black", face = "italic"))
++ labs(title =  expression("Taiwan: Economic Growth and CO"[2]*" "*"Emissions"),caption = "Data Source: IMF&BP", y = expression("CO"[2]*"in"*" "*10^6*" "*"tonnes"), 
+       x = "GDP PPP Per Capita, Constant 2011 USD") + scale_color_brewer(palette = "Dark2") 
++ geom_hline(yintercept=c(268), linetype="dotted") +  geom_text(aes(10000,268,label = "2005 Value", vjust= -0.5))
