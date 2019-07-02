@@ -26,3 +26,15 @@ Taiwan_rel <- TW_NZ_IMF_BP %>% filter(Country =="Taiwan") %>% ggplot(aes(GDP_PPP
  + labs(title =  expression("Taiwan: Economic Growth and CO"[2]*" "*"Emissions"),caption = "Data Source: IMF&BP", y = expression("CO"[2]*"in"*" "*10^6*" "*"tonnes"), x = "GDP PPP Per Capita, Constant 2011 USD")
  + scale_color_brewer(palette = "Dark2") 
 + geom_hline(yintercept=c(268), linetype="dotted") +  geom_text(aes(10000,268,label = "2005 Value", vjust= -0.5))
+
+# Clustering Data to show GDP PPP - GHG Emission across countryies. Using k-means algorithm
+set.seed(25)
+clusters <- kmeans(WorldNew2018[,2:3],5, nstart = 25)
+WorldNew2018$club <- as.factor(clusters$cluster)
+#Visualization using GGplot2
+ggplot(WorldNew2018, aes(x=gdp.ppp, y=co2,colour=club, label = country))+ geom_text(nudge_x = 0.3, nudge_y = -0.2) + scale_y_sqrt()
+ + labs(title =  expression("Economic Growth and CO"[2]*" "*"Emissions"),caption = "Data Source: IMF&BP", y = expression("CO"[2]*"in"*" "*10^6*" "*"tonnes"), x = "GDP PPP Per Capita, Constant 2011 USD") + 
+theme_clean() + geom_smooth(se = FALSE) + guides(fill=guide_legend(title="Level")) + theme(legend.position = "none")
+ + geom_vline(xintercept = c(21000, 37000,56000),  linetype = "dashed") + geom_text(aes(x=15000, y = 3500), label = "<$21K") + 
+geom_text(aes(x=30000, y = 3500), label = "<$37K") + geom_text(aes(x=45000, y = 3500), label = "<$56K") 
++ geom_point(aes(x=gdp.ppp[country == "TWN"], y=co2[country == "TWN"])) + geom_point(aes(x=gdp.ppp[country == "NZL"], y=co2[country == "NZL"]))
