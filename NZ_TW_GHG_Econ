@@ -27,7 +27,7 @@ Taiwan_rel <- TW_NZ_IMF_BP %>% filter(Country =="Taiwan") %>% ggplot(aes(GDP_PPP
  + scale_color_brewer(palette = "Dark2") 
 + geom_hline(yintercept=c(268), linetype="dotted") +  geom_text(aes(10000,268,label = "2005 Value", vjust= -0.5))
 
-# Clustering Data to show GDP PPP - GHG Emission across countryies. Using k-means algorithm
+# Clustering Data to show GDP PPP - GHG Emission across countries. Using unsupervised machine learning k-means algorithm
 set.seed(25)
 clusters <- kmeans(WorldNew2018[,2:3],5, nstart = 25)
 WorldNew2018$club <- as.factor(clusters$cluster)
