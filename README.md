@@ -10,6 +10,6 @@ __You can Download/Fork this repository to your computer to access the data and 
 
 ###### You can see the R code and visualizations:
 
-1 - [For Taiwan Results here](http://htmlpreview.github.io/?https://github.com/edbezci/GHGecon/blob/master/Taiwan_Results.html)
-2 - [For New Zealand Results here](http://htmlpreview.github.io/?https://github.com/edbezci/GHGecon/blob/master/NZ_Results.html)
-3 - [For Global Results here](http://htmlpreview.github.io/?https://github.com/edbezci/GHGecon/blob/master/Global_Results.html)
+* [For Taiwan Results here](http://htmlpreview.github.io/?https://github.com/edbezci/GHGecon/blob/master/Taiwan_Results.html)
+* [For New Zealand Results here](http://htmlpreview.github.io/?https://github.com/edbezci/GHGecon/blob/master/NZ_Results.html)
+* [For Global Results here](http://htmlpreview.github.io/?https://github.com/edbezci/GHGecon/blob/master/Global_Results.html)
