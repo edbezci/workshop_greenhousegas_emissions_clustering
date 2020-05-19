@@ -7,6 +7,13 @@ __There is a growing attention on the implications of Climate Change. However, t
 
 __You can Download/Fork this repository to your computer to access the data and the R code.__
 
+<p align="center"> <i> You can watch the full lecture below </i></p>
+
+<p align= "center"> <a href="http://www.youtube.com/watch?feature=player_embedded&v=iiIa2afYlTE
+" target="_blank"><img src="http://img.youtube.com/vi/iiIa2afYlTE/0.jpg" 
+alt="Recording of the Lecture" width="320" height="240" border="10" /></a></p>
+
+
 
 ###### You can see the R code and visualizations:
 
